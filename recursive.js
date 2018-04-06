@@ -1,3 +1,6 @@
+// Practice tasks from
+// http://codingbat.com/java/Recursion-1
+
 function factorial(n) {
   if (n > 1) {
     return n * factorial(n - 1);
@@ -34,8 +37,19 @@ function array11(arr, i) {
   return sum(arr, i, 0);
 };
 
+// still WIP
+function changePi(str) {
+  if (/pi/.test(str)) {
+    str.replace(/pi/, '3.14');
+  } else {
+    return str;
+  }
+  return changePi(str);
+}
+
 module.exports = {
   factorial: factorial,
   fibonacci: fibonacci,
   array11: array11,
+  changePi: changePi
 };

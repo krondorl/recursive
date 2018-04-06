@@ -24,3 +24,9 @@ test('array11 test', function (t) {
   t.equal(r.array11([11, 3, 11], 0), 2, 'array11([11, 3, 11], 0) == 2');
   t.end();
 });
+
+test('changePi test', function (t) {
+  t.equal(r.changePi('xpix'), 'x3.14x', 'changePi("xpix") == "x3.14x"');
+  t.equal(r.changePi('xp'), 'xp', 'changePi("xp") == "xp"');
+  t.end();
+});
