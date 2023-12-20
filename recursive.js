@@ -1,7 +1,8 @@
 // Practice tasks from
 // http://codingbat.com/java/Recursion-1
 
-function factorial(n) {
+// Can generate stack overflow by using big numbers
+function factorialSync(n) {
   if (n > 1) {
     return n * factorial(n - 1);
   } else if (n == 1) {
@@ -10,6 +11,20 @@ function factorial(n) {
     return false;
   }
 };
+
+// Prevents stack overflow by using setTimeout
+function factorialAsync(n, callback){
+  _factorial(1, n, callback);
+}
+
+function _factorial(acc, n, callback){
+  if (n == 0) {
+    callback(acc);
+  } else {
+    let callback_wrapper = (result) => callback(result);
+    setTimeout(() => _factorial(acc * n, n-1, callback_wrapper), 1);
+  }
+}
 
 function fibonacci(n) {
   if (n > 2) {
